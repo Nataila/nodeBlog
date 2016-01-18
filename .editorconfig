@@ -1,0 +1,9 @@
+root = true
+
+[*.{html,ejs,js,css,coffee,json}]
+indent_style = space
+indent_size = 2
+
+[*.bat]
+indent_style = tab
+indent_size = 4
