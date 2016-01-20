@@ -1,14 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>nataila的后台发布</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <form action="/post" method='POST'>
-      title: <input type="text" name='title'>
-      content: <textarea name='content'></textarea>
-      <button type='submit'>sure</button>
-    </form>
-  </body>
-</html>
+<% include header.ejs %>
+<form class="form-horizontal">
+  <div class="form-group" method="POST" action='/post'>
+    <label for="title" class="col-sm-2 control-label">博文标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" placeholder="标题">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tgs" class="col-sm-2 control-label">博文标签</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" placeholder="博文标签">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description" class="col-sm-2 control-label">博文简介</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="3" name='description' placeholder="博文简介"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-sm-2 control-label">博文内容</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="3" style="height: 300px" name='content' placeholder="博文内容"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">提交</button>
+    </div>
+  </div>
+</form>
+<% include footer.ejs %>

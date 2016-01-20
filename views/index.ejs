@@ -1,49 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel='stylesheet' type="text/css" href='bootstrap/theme/bootstrap.united.css' />
-    <link rel='stylesheet' type="text/css" href='css/main.css' />
-    <script src='/jQuery/jquery-1.12.0.min.js'></script>
-    <script src='/bootstrap/js/bootstrap.js'></script>
-  </head>
-  <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">nataila's Blog</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">xx</a></li>
-          </ul>
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </div>
-      </div>
+<% include header.ejs %>
+<div class="row">
+  <div class="main-left col-md-8">
+    <div class="post-main">
+      <h2 class="line-title">
+        <span> 近期文章 </span>
+      </h2>
+      <% postList.forEach(function (item) {%>
+        <% include postList.ejs %>
+      <% }) %>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="main-left col-md-8">
-          <div class="post-main">
-            <h2 class="line-title">
-              <span> 近期文章 </span>
-            </h2>
-            <% postList.forEach(function (item) {%>
-              <% include postList.ejs %>
-            <% }) %>
-          </div>
-        </div>
-        <div class="col-md-4 main-right">
-          sldkfj
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+  </div>
+  <div class="col-md-4 main-right">
+    sldkfj
+  </div>
+</div>
+<% include footer.ejs %>
