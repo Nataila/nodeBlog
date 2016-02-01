@@ -1,1 +1,0 @@
-var Post = require('./db');
