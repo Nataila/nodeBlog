@@ -1,17 +1,18 @@
 /* GET home page. */
 var express = require('express');
 var bodyParser = require('body-parser');
+var md = require("node-markdown").Markdown;
 var PostModel = require('../models/post');
 var _ = require('underscore');
 var moment = require('moment');
 module.exports = function (app) {
   app.get('/', function(req, res) {
-    var postList = PostModel.find({title: 'asdf'});
+    var postList = PostModel.find().sort('-created_at');
     postList.exec(function (err, post) {
       _.each(post, function (item) {
         item.created_time = moment(item.created_at).format('YYYY-MM-DD');
       });
-      res.render('index', {'postList': post});
+      res.render('postList', {'postList': post});
     });
   });
   app.get('/admin', function (req, res) {
@@ -21,12 +22,20 @@ module.exports = function (app) {
   app.post('/post', function (req, res) {
     var title = req.body.title;
     var content = req.body.content;
-    var post = new PostModel({
-      title: title,
-      content: content
+    var newPost = {};
+    _.each(['title', 'description', 'content', 'tags'], function (item) {
+      newPost[item] = req.body[item];
     });
+    var post = new PostModel(newPost);
     post.save(function (err, post) {
       console.log(post);
+    });
+  });
+
+  app.get('/detail/:id', function (req, res) {
+    var postId = req.param('id');
+    PostModel.findById(postId, function (err, post) {
+      res.render('detail', {md: md, 'postDetail': post});
     });
   });
 };

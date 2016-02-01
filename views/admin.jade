@@ -1,0 +1,22 @@
+extends index
+block postMain
+  form.form-horizontal(method='POST', action='/post')
+    .form-group
+      label.col-sm-2.control-label(for='title') &#x535A;&#x6587;&#x6807;&#x9898;
+      .col-sm-10
+        input#title.form-control(type='text', name='title', placeholder='标题')
+    .form-group
+      label.col-sm-2.control-label(for='tgs') &#x535A;&#x6587;&#x6807;&#x7B7E;
+      .col-sm-10
+        input#title.form-control(type='text', name='tags', placeholder='博文标签')
+    .form-group
+      label.col-sm-2.control-label(for='description') &#x535A;&#x6587;&#x7B80;&#x4ECB;
+      .col-sm-10
+        textarea.form-control(rows='3', name='description', placeholder='博文简介')
+    .form-group
+      label.col-sm-2.control-label(for='content') &#x535A;&#x6587;&#x5185;&#x5BB9;
+      .col-sm-10
+        textarea.form-control(rows='3', style='height: 300px', name='content', placeholder='博文内容')
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-default(type='submit') &#x63D0;&#x4EA4;

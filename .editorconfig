@@ -1,6 +1,6 @@
 root = true
 
-[*.{html,ejs,js,css,coffee,json}]
+[*.{html,ejs,js,css,coffee,json,jade}]
 indent_style = space
 indent_size = 2
 

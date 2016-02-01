@@ -1,0 +1,12 @@
+extends index
+block postMain
+  h2.line-title<span>近期文章</span>
+    each post in postList
+      article.post-list
+        header
+          strong
+            a(href="/detail/#{post._id}") #{post.title}
+        p.author-msg nataila发表于#{post.created_time}
+        .note #{post.description}
+        footer.text-muted
+          span 阅读(343)

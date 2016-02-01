@@ -1,0 +1,6 @@
+extends index
+block postMain
+  h2.line-title
+    span 近期文章
+  p #{ postDetail.title }
+  != md(postDetail.content)
