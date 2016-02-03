@@ -1,11 +1,11 @@
 extends index
 block postMain
 
-  form.form-horizontal
-    .form-group(method='POST', action='/post')
+  form.form-horizontal(method='POST', action='/post')
+    .form-group
       label.col-sm-2.control-label(for='title') 标题
       .col-sm-10
-        input#title.form-control(type='text', placeholder='标题')
+        input#title.form-control(type='text', placeholder='标题', name='title')
     .form-group
       label.col-sm-2.control-label(for='tgs') 标签
       .col-sm-5
