@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var md = require("node-markdown").Markdown;
 var PostModel = require('../models/post');
+var TagsModel = require('../models/tags');
 var _ = require('underscore');
 var moment = require('moment');
 module.exports = function (app) {
@@ -16,7 +17,10 @@ module.exports = function (app) {
     });
   });
   app.get('/admin', function (req, res) {
-    res.render('admin', {});
+    var tagsList = TagsModel.find().sort('-created_at');
+    tagsList.exec(function (err, tags) {
+      res.render('admin', {'tags': tags});
+    });
   });
 
   app.post('/post', function (req, res) {
@@ -36,6 +40,14 @@ module.exports = function (app) {
     var postId = req.param('id');
     PostModel.findById(postId, function (err, post) {
       res.render('detail', {md: md, 'postDetail': post});
+    });
+  });
+
+  app.post('/tags', function (req, res) {
+    var name = req.body.name;
+    var newTag = new TagsModel({'name': name});
+    newTag.save(function (err,  tag) {
+      res.send(tag);
     });
   });
 };

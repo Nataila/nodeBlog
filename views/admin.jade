@@ -1,22 +1,54 @@
 extends index
 block postMain
-  form.form-horizontal(method='POST', action='/post')
-    .form-group
-      label.col-sm-2.control-label(for='title') &#x535A;&#x6587;&#x6807;&#x9898;
+
+  form.form-horizontal
+    .form-group(method='POST', action='/post')
+      label.col-sm-2.control-label(for='title') 标题
       .col-sm-10
-        input#title.form-control(type='text', name='title', placeholder='标题')
+        input#title.form-control(type='text', placeholder='标题')
     .form-group
-      label.col-sm-2.control-label(for='tgs') &#x535A;&#x6587;&#x6807;&#x7B7E;
-      .col-sm-10
-        input#title.form-control(type='text', name='tags', placeholder='博文标签')
+      label.col-sm-2.control-label(for='tgs') 标签
+      .col-sm-5
+        .input-group
+          select.form-control
+            each tag in tags
+              option(name='#{tag._id}') #{tag.name}
+          span.input-group-btn
+            button.btn.btn-primary(type='button' data-toggle='modal' data-target='#tags-edit') 标签管理
     .form-group
-      label.col-sm-2.control-label(for='description') &#x535A;&#x6587;&#x7B80;&#x4ECB;
+      label.col-sm-2.control-label(for='description') 描述
       .col-sm-10
         textarea.form-control(rows='3', name='description', placeholder='博文简介')
     .form-group
-      label.col-sm-2.control-label(for='content') &#x535A;&#x6587;&#x5185;&#x5BB9;
+      label.col-sm-2.control-label(for='content') 内容
       .col-sm-10
         textarea.form-control(rows='3', style='height: 300px', name='content', placeholder='博文内容')
     .form-group
       .col-sm-offset-2.col-sm-10
-        button.btn.btn-default(type='submit') &#x63D0;&#x4EA4;
+        button.btn.btn-primary(type='submit') 提交
+
+    #tags-edit.modal
+      .alert.hide.alert-sidmissible.alert-info.alert-tags-success
+        button.close(type='button', data-dismiss='alert') X
+        h4 提示
+        p 标签添加成功！！
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') X
+            h4.modal-title Modal title
+          .modal-body
+            .tags-had
+              each tag in tags
+                span.label.label-info #{tag.name}
+            <hr />
+            .tags-add
+               h3添加标签
+              .form-group
+                .input-group
+                  input.form-control.tag-name(type='text')
+                  span.input-group-btn
+                    button.btn.btn-primary.btn-tag-add(type='button') 确定
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+
