@@ -18,11 +18,12 @@ body {
   border-bottom: 2px solid #EEEEEE;
 }
 
-.line-title span {
+.line-title > span {
   border-bottom: 2px solid #dd4814;
 }
 
 .post-list strong a {
+  margin-left: 10px;
   line-height: 24px;
   font-size: 18px;
   color: #000000;
@@ -45,6 +46,7 @@ body {
 p.author-msg {
   font-size: 12px;
   color: #999;
+  margin-top: 10px;
 }
 
 .text-muted {
@@ -66,4 +68,21 @@ p.author-msg {
   display: inline-block;
   margin-right: 10px;
   margin-top: 5px;
+}
+h3.tags-title {
+  font-size: 16px;
+  border-left: 3px #df382c solid;
+  padding-left: 5px;
+}
+p.new-post, p.tag {
+  padding-left: 10px;
+}
+
+p.tag, p.tag a {
+  font-size: 14px;
+  color: #777;
+}
+
+p.tag a:hover {
+  color: #df382c;
 }

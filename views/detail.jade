@@ -1,6 +1,5 @@
 extends index
 block postMain
-  h2.line-title
-    span 近期文章
-  p #{ postDetail.title }
+  h2.detail-title #{ postDetail.title }
+  p.detail-author nataila 发表于 #{ postDetail.created_time }  分类（#{ postDetail.tags }）
   != md(postDetail.content)

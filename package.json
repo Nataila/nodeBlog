@@ -20,6 +20,7 @@
     "serve-favicon": "~2.3.0",
     "markdown-js": ">0.0.1",
     "marked": "~0.3.5",
+    "async": "",
 
     "supervisor": ""
   }

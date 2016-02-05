@@ -10,7 +10,7 @@ block postMain
       label.col-sm-2.control-label(for='tgs') 标签
       .col-sm-5
         .input-group
-          select.form-control
+          select.form-control(name='tags')
             each tag in tags
               option(name='#{tag._id}') #{tag.name}
           span.input-group-btn

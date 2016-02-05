@@ -23,12 +23,23 @@ html
               a(href='#') xx
           form.navbar-form.navbar-right(role='search')
             .form-group
-              input.form-control(type='text', placeholder='Search')
-            button.btn.btn-default(type='submit') Submit
+              input.form-control(type='text', placeholder='搜索文章')
+            button.btn.btn-default(type='submit') 搜索
     .container
       .row
         .main-left.col-md-8
           .post-main
           block postMain
         .col-md-4.main-right
-        asldfkj
+          if tagList
+            div
+              h3.tags-title 标签分类
+              each tag in tagList
+                p.tag
+                  a(href="#{tag._id}") #{tag.name}
+                  span (#{tag.count})
+            div
+              h3.tags-title 近期文章
+              each post in newPostList
+                p.tag
+                  a(href="detail/#{post._id}") #{ post.title }

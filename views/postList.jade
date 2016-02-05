@@ -5,8 +5,9 @@ block postMain
       article.post-list
         header
           strong
-            a(href="/detail/#{post._id}") #{post.title}
-        p.author-msg nataila发表于#{post.created_time}
-        .note #{post.description}
+            span.label.label-danger #{ post.tags }
+            a(href="/detail/#{post._id}") #{ post.title }
+        p.author-msg nataila发表于#{ post.created_time }
+        .note #{ post.description }
         footer.text-muted
           span 阅读(343)
