@@ -6,6 +6,7 @@ html
     link(rel='stylesheet', type='text/css', href='/bootstrap/theme/bootstrap.united.css')
     link(rel='stylesheet', type='text/css', href='/css/main.css')
     script(src='/jQuery/jquery-1.12.0.min.js')
+    script(src='twbsPagination/jquery.twbsPagination.js')
     script(src='/bootstrap/js/bootstrap.js')
     script(src='js/main.js')
   body
@@ -21,9 +22,9 @@ html
                 span.sr-only (current)
             li
               a(href='#') xx
-          form.navbar-form.navbar-right(role='search')
+          form.navbar-form.navbar-right(role='search', method='GET', action='/')
             .form-group
-              input.form-control(type='text', placeholder='搜索文章')
+              input.form-control(type='text', name='search', placeholder='搜索文章', value='#{searchParam}')
             button.btn.btn-default(type='submit') 搜索
     .container
       .row
@@ -42,4 +43,4 @@ html
               h3.tags-title 近期文章
               each post in newPostList
                 p.tag
-                  a(href="detail/#{post._id}") #{ post.title }
+                  a(href="/detail/#{post._id}") #{ post.title }

@@ -86,3 +86,6 @@ p.tag, p.tag a {
 p.tag a:hover {
   color: #df382c;
 }
+div.pagination-f {
+  text-align: center;
+}

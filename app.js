@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 
 var app = express();
+app.use(function (req, res, next) {
+  next();
+});
 
 app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));

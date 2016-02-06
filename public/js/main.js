@@ -14,4 +14,9 @@ $(document).ready(function () {
       }
     });
   });
+  $('#pagination-postList').twbsPagination({
+      totalPages: Math.ceil(parseInt($('.pagination-f').data('count')) / 10),
+      visiblePages: 7,
+      href: "?page={{number}}"
+  });
 });
